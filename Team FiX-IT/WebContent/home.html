@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Open+Sans" rel="stylesheet">
+  </head>
+  <!-- Header Part -->
+  <header>
+    <div class="tb">
+      <h3><i class="fas fa-users"></i>Team FiX-IT</h3
+       >
+     </div>
+    <h1 id="mainHeading">FindMy<span>VaccineCenter</span></h1>
+    <nav>
+      <ul>
+        <li><a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> Home</a></li>
+        <li><a href="about.html"><i class="fa fa-fw fa-envelope"></i>About</a></li>
+        <li><a href="faq.html"><i class="fa fa-fw fa-search"></i>FAQ'S</i></a></li>
+        <li><a href="login.jsp"><i class="fa fa-fw fa-user"></i> Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Body Of the page -->
+  <body>
+    <div>
+      <img src="png1.jpeg" alt="women-get-vaccine" width="500" height="500">
+      <div id="mainContent">
+        <h1 id="heading">Get yourself Vaccinated</h1>
+        <p id="paragraph">Covid 19 out breaked our life one of the way to protect ourself is by getting vaccine . WHO said - Vaccines save millions of lives each year.Vaccines work by training and preparing the body’s natural defences – the immune system – to recognize and fight off the viruses and bacteria they target. After vaccination, if the body is later exposed to those disease-causing germs, the body is immediately ready to destroy them, preventing illness.</p>
+      <!--  <p id="paragraph">In India,
+              todays Total Confirmed cases  is 2576696534
+              and the Total Deaths cases  is 4653763
+              and the Total Recovered cases is 68268468684<br>So Hurry up !!!! Search your vaccination center by clicking the below button.</p>  --> 
+        <p id="apiindia"> </p>
+
+        <script type="text/javascript">
+           fetch('https://api.covid19api.com/summary').then((apidata)=>{
+             // console.log(apidata);
+              return apidata.json();
+           }).then((actualdata)=>{
+              // console.log(actualdata);
+                //console.log(actualdata.Countries[76]);
+              const mydata = (actualdata.Countries[76]);
+              document.getElementById(`apiindia`).innerHTML= `In ${mydata.Country}.
+              Todays Total Confirmed cases  is ${mydata.TotalConfirmed} 
+              and the Total Deaths cases  is ${mydata.TotalDeaths} 
+              and the Total Recovered cases is ${mydata.TotalRecovered}`;
+           }).catch((error)=>{
+               console.log(error);
+           });
+           </script>
+         </div>
+    </div>
+    <center><button class="button"><a href="register.jsp">Register Now</button></center>
+    <br><br><br><br><br>
+    <!-- Fotter part -->
+  <footer class="footer">
+    <div>
+      <h2>Contact</h2>
+      <h2 text-color="black"><a href="mailto:lavanya.cs051@gmail.com">Email us</a></h2>
+    </div>
+    <li>
+      <h3 style="font-weight: bold;">Members</h3>
+      <ul>
+        <ol>Lavanya P, Sindhu H</ol>
+        <ol>DivyaShree U M , Shwetha K J,Harshitha T K</ol>
+      </ul>
+    </li><br><br><br><br><br><br>
+    <div class="legal">
+    <p>&copy; 2021 Team FiX-IT All rights reserved.</p>
+
+    <div class="legal__links">
+      <span>Made with <span class="heart">🧡</span><b>Love by FiX-IT</b></span>
+    </div>
+  </footer>
+  </body>
+  </html>
+  
